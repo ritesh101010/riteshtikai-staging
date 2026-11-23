@@ -187,7 +187,7 @@
     <section id="contact" class="contact" aria-labelledby="c-h">
       <h2 id="c-h">Zeg gerust hoi!</h2>
       <p>Een vraag, een idee of gewoon een berichtje.</p>
-      <a class="btn" href="mailto:hallo@riteshtikai.com">hallo@riteshtikai.com</a>
+      <a class="btn" href="mailto:riteshtikai@gmail.com">riteshtikai@gmail.com</a>
       <div class="socials" aria-label="Volg mij"><a href="https://www.instagram.com/riteshtikai/" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a><a href="https://www.linkedin.com/in/ritesh-tikai-97643459/" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.7 2.5 4.7 5.8V21h-4v-5.2c0-1.2 0-2.8-1.8-2.8s-2 1.3-2 2.7V21h-4z"/></svg>LinkedIn</a><a href="https://www.tiktok.com/@tiktoktikai" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg>@tiktoktikai</a><a href="https://www.tiktok.com/@tiktoktikai1" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg>@tiktoktikai1</a></div>
     </section>
   </main>
@@ -196,17 +196,19 @@
 <script>
 /* Vul hier je echte video-links in (url = link naar de TikTok-video). */
 const P = "https://www.tiktok.com/@tiktoktikai", W = "https://www.tiktok.com/@tiktoktikai1";
+/* Echte video's: [kanaal, titel, weergaven, link, thumbnail] */
 const VIDEOS = [
-  ["werk","POV: kidnap een AI-expert","24k",W],["persoonlijk","Een dag uit mijn leven","12k",P],["werk","3 prompts die tijd besparen","15k",W],
-  ["persoonlijk","Achter de schermen","8,4k",P],["werk","AI-mythe ontkracht","11k",W],["persoonlijk","Weekendje weg","5,1k",P],
-  ["werk","Zo werkt een AI-agent","7,9k",W],["persoonlijk","Mijn ochtendroutine","9,7k",P],["werk","POV: je baas ontdekt ChatGPT","19k",W],["persoonlijk","Q&A: jullie vragen","3,2k",P]
+  ["werk","POV: je kidnapt een AI-expert","11,6k",W+"/video/7685668759616474400","media/tt/kidnap-ai-expert.jpg"],
+  ["persoonlijk","Qualitytime met jezelf en je mensen","6,4k",P+"/video/7696442597606214945","media/tt/qualitytime.jpg"],
+  ["werk","Komt AI echt in opstand?","2,3k",W+"/video/7688606995326225696","media/tt/ai-opstand.jpg"],
+  ["werk","Jarig op dezelfde dag als Naruto","4,7k",W+"/video/7694637162733653281","media/tt/jarig-naruto.jpg"]
 ];
 const KLEUR = { persoonlijk: ["#7a2a45,#1c0d13","#6a5320,#1f180a","#4a3560,#170f20"], werk: ["#0f5a58,#06191a","#1f3a6a,#0a1220","#2f4a3a,#121c16"] };
 const BADGE = { persoonlijk: ["🙂 Persoonlijk","var(--pink)"], werk: ["🤖 Tik-AI","var(--cyan)"] };
 const track = document.getElementById("track");
 function toon(f) {
   const lijst = VIDEOS.filter(v => f === "alles" || v[0] === f);
-  track.innerHTML = lijst.map(([k, t, v, url], j) => `<a class="card ${k}" role="listitem" href="${url}"><div class="phone" style="background:linear-gradient(170deg,${KLEUR[k][j % 3]})"><span class="badge" style="background:${BADGE[k][1]}">${BADGE[k][0]}</span><span class="play" aria-hidden="true">▶</span><strong>${t}</strong><span class="v">${v} weergaven</span></div></a>`).join("");
+  track.innerHTML = lijst.map(([k, t, v, url, img], j) => `<a class="card ${k}" role="listitem" href="${url}"><div class="phone" style="background:#120b20 url(${img}) center/cover"><span class="badge" style="background:${BADGE[k][1]}">${BADGE[k][0]}</span><span class="play" aria-hidden="true">▶</span><strong>${t}</strong><span class="v">${v} weergaven</span></div></a>`).join("");
   track.scrollLeft = 0;
   document.getElementById("status").textContent = lijst.length + " video's getoond";
 }
