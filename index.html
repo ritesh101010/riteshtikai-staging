@@ -115,7 +115,16 @@
   .contact .btn{box-shadow:5px 5px 0 var(--yellow)}
   .face{overflow:hidden}
   .face video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%}
+  .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+  .socials a{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(11,6,22,.88);color:#f3eeff;font-weight:700;font-size:15px;text-decoration:none;border:2px solid #0b0616;transition:transform .15s}
+  .socials a:hover{transform:translateY(-2px)}
+  footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  footer .foot{display:flex;flex-wrap:wrap;gap:8px 18px}
+  footer .foot a{white-space:nowrap}
+  footer .foot a{color:var(--muted);text-decoration:none}footer .foot a:hover{color:var(--ink);text-decoration:underline}
+  @media (prefers-reduced-motion:reduce){.socials a{transition:none}}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ritesh Tikai","url":"https://www.riteshtikai.com","sameAs":["https://www.instagram.com/riteshtikai/","https://www.linkedin.com/in/ritesh-tikai-97643459/","https://www.tiktok.com/@tiktoktikai","https://www.tiktok.com/@tiktoktikai1"]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Naar inhoud</a>
@@ -164,7 +173,7 @@
         </div>
       </div>
       <div class="channels">
-        <a class="pk" href="https://www.tiktok.com/"><i style="background:var(--pink)">🙂</i>Volg @[persoonlijk]</a>
+        <a class="pk" href="https://www.tiktok.com/@tiktoktikai"><i style="background:var(--pink)">🙂</i>Volg @tiktoktikai</a>
         <a class="wk" href="https://www.tiktok.com/@tiktoktikai1"><i style="background:var(--cyan)">🤖</i>Volg @tiktoktikai1</a>
       </div>
       <div class="stage">
@@ -179,13 +188,14 @@
       <h2 id="c-h">Zeg gerust hoi!</h2>
       <p>Een vraag, een idee of gewoon een berichtje.</p>
       <a class="btn" href="mailto:hallo@riteshtikai.com">hallo@riteshtikai.com</a>
+      <div class="socials" aria-label="Volg mij"><a href="https://www.instagram.com/riteshtikai/" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a><a href="https://www.linkedin.com/in/ritesh-tikai-97643459/" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.7 2.5 4.7 5.8V21h-4v-5.2c0-1.2 0-2.8-1.8-2.8s-2 1.3-2 2.7V21h-4z"/></svg>LinkedIn</a><a href="https://www.tiktok.com/@tiktoktikai" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg>@tiktoktikai</a><a href="https://www.tiktok.com/@tiktoktikai1" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg>@tiktoktikai1</a></div>
     </section>
   </main>
-  <footer>© 2026 Ritesh Tikai</footer>
+  <footer><span>© 2026 Ritesh Tikai</span><div class="foot" role="navigation" aria-label="Sociale media"><a href="https://www.instagram.com/riteshtikai/">Instagram</a><a href="https://www.linkedin.com/in/ritesh-tikai-97643459/">LinkedIn</a><a href="https://www.tiktok.com/@tiktoktikai">TikTok</a><a href="https://www.tiktok.com/@tiktoktikai1">Tik-AI</a></div></footer>
 </div>
 <script>
 /* Vul hier je echte video-links in (url = link naar de TikTok-video). */
-const P = "https://www.tiktok.com/", W = "https://www.tiktok.com/@tiktoktikai1";
+const P = "https://www.tiktok.com/@tiktoktikai", W = "https://www.tiktok.com/@tiktoktikai1";
 const VIDEOS = [
   ["werk","POV: kidnap een AI-expert","24k",W],["persoonlijk","Een dag uit mijn leven","12k",P],["werk","3 prompts die tijd besparen","15k",W],
   ["persoonlijk","Achter de schermen","8,4k",P],["werk","AI-mythe ontkracht","11k",W],["persoonlijk","Weekendje weg","5,1k",P],
