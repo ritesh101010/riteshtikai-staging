@@ -113,6 +113,8 @@
   @media (prefers-reduced-motion:reduce){.w>span{transform:none}}
   .contact{background:linear-gradient(135deg,var(--pink),var(--cyan));box-shadow:10px 10px 0 var(--yellow)}
   .contact .btn{box-shadow:5px 5px 0 var(--yellow)}
+  .face{overflow:hidden}
+  .face video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%}
 </style>
 </head>
 <body>
@@ -136,7 +138,7 @@
         <div class="portal" id="portal">
           <div class="glow" aria-hidden="true"></div><div class="ring1" aria-hidden="true"></div>
           <div class="ring2" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="pc" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text fill="#ffd36e" font-family="Cinzel" font-size="8.5" letter-spacing="3.4"><textPath href="#pc">✦ AI ✦ MAGIE ✦ CODE ✦ VERHALEN ✦ VIDEO'S ✦ HET LEVEN ✦ RITESH ✦ </textPath></text></svg></div>
-          <div class="face" role="img" aria-label="Plek voor portretfoto van Ritesh">RT<small>jouw foto hier</small></div>
+          <div class="face"><video id="facevid" src="media/hero.mp4" poster="media/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Korte video van Ritesh"></video></div>
         </div>
       </div>
     </div>
@@ -272,6 +274,12 @@ function teken(t) {
 }
 maat();
 requestAnimationFrame(lus);
+})();
+/* Hero-video: volgt de pauzeknop en "minder beweging" */
+(() => {
+  const v = document.getElementById("facevid"), knop = document.getElementById("pause");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); }
+  knop.addEventListener("click", () => knop.getAttribute("aria-pressed") === "true" ? v.pause() : v.play());
 })();
 </script>
 </body>
