@@ -153,6 +153,10 @@
   @keyframes fonkel{50%{transform:scale(.6);opacity:.6}}
   @media (prefers-reduced-motion:reduce){.fonkel{animation:none}}
   .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(14,8,32,.88);color:#fff;border:1.5px solid;padding:3px 10px 3px 7px;letter-spacing:.02em;backdrop-filter:blur(4px)}
+  header .logo{background:none;padding:0;border-radius:0;display:block;line-height:0}
+  header .logo svg{height:74px;width:74px;margin:-7px 0;display:block;overflow:visible;transition:transform .6s ease}
+  header .logo:hover svg{transform:rotate(45deg)}
+  @media (prefers-reduced-motion:reduce){header .logo svg{transition:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ritesh Tikai","url":"https://riteshtikai.com/","sameAs":["https://www.instagram.com/riteshtikai/","https://www.linkedin.com/in/ritesh-tikai-97643459/","https://www.tiktok.com/@tiktoktikai","https://www.tiktok.com/@tiktoktikai1"]}</script>
 </head>
@@ -160,7 +164,7 @@
 <a class="skip" href="#main">Naar inhoud</a>
 <div class="wrap">
   <header>
-    <a class="logo" href="#">RT</a>
+    <a class="logo" href="#" aria-label="Ritesh Tikai, naar boven"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="goudLogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f0c96a"/><stop offset="1" stop-color="#b8862f"/></linearGradient></defs><text x="19" y="36" text-anchor="middle" font-family="Cinzel, serif" font-weight="600" font-size="17" fill="url(#goudLogo)">R</text><text x="41" y="36" text-anchor="middle" font-family="Cinzel, serif" font-weight="600" font-size="17" fill="url(#goudLogo)">T</text><path d="M30 2 L31.4 28.6 L58 30 L31.4 31.4 L30 58 L28.6 31.4 L2 30 L28.6 28.6 Z" fill="none" stroke="url(#goudLogo)" stroke-width=".7" stroke-linejoin="round"/><path d="M30 18 L30.6 29.4 L42 30 L30.6 30.6 L30 42 L29.4 30.6 L18 30 L29.4 29.4 Z" fill="none" stroke="url(#goudLogo)" stroke-width=".45" transform="rotate(45 30 30)"/><circle cx="30" cy="30" r=".9" fill="url(#goudLogo)"/></svg></a>
     <nav aria-label="Hoofdmenu"><a href="#tiktok">TikTok</a><a href="#contact">Contact</a></nav>
   </header>
   <main id="main">
