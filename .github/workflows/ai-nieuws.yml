@@ -1,0 +1,54 @@
+name: AI-nieuws verversen
+
+# Elke ochtend om 07:00 Nederlandse tijd.
+# GitHub rekent in UTC: 05:00 UTC = 07:00 zomertijd, 06:00 UTC = 07:00 wintertijd.
+# Beide tijden draaien; de stap "Is het 07:00 in Nederland?" laat er telkens maar een doorgaan.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: ai-nieuws
+  cancel-in-progress: false
+
+jobs:
+  verversen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Is het 07:00 in Nederland?
+        id: tijd
+        run: |
+          uur=$(TZ=Europe/Amsterdam date +%H)
+          echo "Nederlandse tijd: $(TZ=Europe/Amsterdam date)"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$uur" = "07" ]; then echo "door=ja" >> "$GITHUB_OUTPUT"; else echo "door=nee" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/checkout@v4
+        if: steps.tijd.outputs.door == 'ja'
+
+      - uses: actions/setup-python@v5
+        if: steps.tijd.outputs.door == 'ja'
+        with:
+          python-version: "3.12"
+
+      - name: Nieuws ophalen
+        if: steps.tijd.outputs.door == 'ja'
+        run: python tools/ai_nieuws.py ai-nieuws/ai-nieuws.json
+
+      - name: Opslaan en publiceren
+        if: steps.tijd.outputs.door == 'ja'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "AI-nieuws bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ai-nieuws/ai-nieuws.json
+          if git diff --cached --quiet; then echo "Geen nieuw nieuws"; exit 0; fi
+          git commit -m "AI-nieuws $(TZ=Europe/Amsterdam date +%Y-%m-%d)"
+          git push
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages-build aanvragen mislukt; de push bouwt de site normaal ook opnieuw."
