@@ -208,6 +208,10 @@
   .kaart .tag{position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.08em;padding:3px 9px;border-radius:999px;border:1px solid rgba(94,242,255,.4);color:var(--cyan)}
   #certificaten .channels i.hemel svg{width:100%;height:100%}
   @media (prefers-reduced-motion:reduce){.kaart{transition:none}}
+  .geluid{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);z-index:5;display:inline-flex;align-items:center;gap:8px;font:700 14px Sora,sans-serif;color:#fff;background:rgba(11,6,22,.85);border:1.5px solid rgba(255,211,110,.6);border-radius:999px;padding:7px 14px 7px 10px;cursor:pointer;backdrop-filter:blur(6px);transition:border-color .2s}
+  .geluid:hover{border-color:var(--yellow)}
+  .geluid svg{width:20px;height:20px}
+  .geluid .aan{display:none}.geluid[aria-pressed=true] .aan{display:inline}.geluid[aria-pressed=true] .uit{display:none}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "name": "Ritesh Tikai", "url": "https://riteshtikai.com/", "sameAs": ["https://www.instagram.com/riteshtikai/", "https://www.linkedin.com/in/ritesh-tikai-97643459/", "https://www.tiktok.com/@tiktoktikai", "https://www.tiktok.com/@tiktoktikai1"], "givenName": "Ritesh", "familyName": "Tikai", "image": "https://riteshtikai.com/media/og.jpg", "description": "Ritesh Tikai maakt video's over AI en het leven, op TikTok (@tiktoktikai en @tiktoktikai1) en Instagram (@riteshtikai).", "knowsAbout": ["Kunstmatige intelligentie", "AI", "Video", "Reizen"], "@id": "https://riteshtikai.com/#persoon", "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": "Claude Academy: Teaching AI Fluency", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-11"}, {"@type": "EducationalOccupationalCredential", "name": "Introduction to Claude Cowork", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency for Small Businesses", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: AI Capabilities & Limitations", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: Framework & Foundation", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "Claude 101", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026"}]}, {"@type": "WebSite", "@id": "https://riteshtikai.com/#website", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "inLanguage": "nl", "publisher": {"@id": "https://riteshtikai.com/#persoon"}}, {"@type": "ProfilePage", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "mainEntity": {"@id": "https://riteshtikai.com/#persoon"}}]}</script>
 </head>
@@ -231,7 +235,7 @@
         <div class="portal" id="portal">
           <div class="glow" aria-hidden="true"></div><div class="ring1" aria-hidden="true"></div>
           <div class="ring2" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="pc" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text fill="#ffd36e" font-family="Cinzel" font-size="8.5" letter-spacing="3.4"><textPath href="#pc">✦ AI ✦ TRAVEL ✦ FOODIE ✦ VERHALEN ✦ VIDEO'S ✦ HET LEVEN ✦ RITESH ✦ </textPath></text></svg></div>
-          <div class="face"><video id="facevid" src="media/hero.mp4" poster="media/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Korte video van Ritesh Tikai"></video></div>
+          <div class="face"><video id="facevid" src="media/hero.mp4?v=2" poster="media/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Korte video van Ritesh Tikai"></video></div><button class="geluid" id="geluid" type="button" aria-pressed="false"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 16 H14 L22 9 V31 L14 24 H8 Z" fill="none" stroke="url(#goudIco)" stroke-width="2" stroke-linejoin="round"/><g class="aan"><path d="M27 15 a7 7 0 0 1 0 10 M30.5 11.5 a12 12 0 0 1 0 17" fill="none" stroke="url(#goudIco)" stroke-width="2" stroke-linecap="round"/></g><g class="uit"><path d="M27 16 L35 24 M35 16 L27 24" stroke="url(#goudIco)" stroke-width="2" stroke-linecap="round"/></g></svg><span>Geluid aan</span></button>
         </div>
       </div>
     </div>
@@ -432,6 +436,18 @@ requestAnimationFrame(lus);
 (() => {
   const t = document.getElementById("igtrack");
   document.querySelectorAll(".ig-btn").forEach(b => b.onclick = () => t.scrollBy({ left: b.dataset.d * t.clientWidth * .8 }));
+})();
+/* Geluid voor de hero-video (start altijd zonder geluid: browsers blokkeren autoplay met geluid) */
+(() => {
+  const v = document.getElementById("facevid"), b = document.getElementById("geluid");
+  if (!v || !b) return;
+  b.onclick = () => {
+    const aan = v.muted;
+    v.muted = !aan;
+    if (aan && v.paused) v.play();
+    b.setAttribute("aria-pressed", aan);
+    b.querySelector("span").textContent = aan ? "Geluid uit" : "Geluid aan";
+  };
 })();
 </script>
 </body>
