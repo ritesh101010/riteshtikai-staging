@@ -37,6 +37,8 @@ jobs:
 
       - name: Nieuws ophalen
         if: steps.tijd.outputs.door == 'ja'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optioneel: zonder sleutel draait alleen het filter
         run: python tools/ai_nieuws.py ai-nieuws/ai-nieuws.json
 
       - name: Opslaan en publiceren
