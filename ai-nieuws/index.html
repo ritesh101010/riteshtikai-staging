@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-nieuws | Ritesh Tikai</title>
+<meta name="description" content="Elke ochtend om 07:00 het AI-nieuws van de dag, geselecteerd door Ritesh Tikai: grappig, Nederlands, internationaal, voor ondernemers en de nieuwste tools.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="canonical" href="https://riteshtikai.com/ai-nieuws/">
+<meta property="og:title" content="AI-nieuws van vandaag | Ritesh Tikai">
+<meta property="og:description" content="Elke ochtend om 07:00 het AI-nieuws van de dag: grappig, Nederlands, internationaal, voor ondernemers en de nieuwste tools.">
+<meta property="og:url" content="https://riteshtikai.com/ai-nieuws/">
+<meta property="og:image" content="https://riteshtikai.com/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Ontwerp B: Nieuwsfeed met filters */
+  :root{--ink:#f3eeff;--muted:#b3a9cc;--line:#2a1f45;--bg:#0b0616;--surface:#160d2a;--yellow:#ffd36e;--pink:#c49bff;--cyan:#5ef2ff;
+        --c-grappig:#ffd36e;--c-nederland:#ff9fbf;--c-internationaal:#5ef2ff;--c-ondernemers:#c49bff;--c-tools:#8dffc0}
+  *{box-sizing:border-box;margin:0}
+  body{background:radial-gradient(circle at 75% 10%,rgba(155,92,255,.22),transparent 45%),radial-gradient(circle at 10% 80%,rgba(94,242,255,.08),transparent 40%),var(--bg);color:var(--ink);font:16px/1.5 Sora,system-ui,sans-serif;min-height:100vh}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px 70px}
+  header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  header.top svg{width:52px;height:52px;display:block}
+  header.top nav a{margin-left:24px;color:var(--muted);text-decoration:none;font-weight:600}header.top nav a:hover{color:var(--ink)}
+  .intro{padding:34px 0 26px}
+  .live{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+  .live i{width:8px;height:8px;border-radius:50%;background:#8dffc0;box-shadow:0 0 10px #8dffc0;animation:puls 2s infinite}
+  @keyframes puls{50%{opacity:.35}}
+  h1{font-size:clamp(42px,6.5vw,82px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:16px 0 10px}
+  h1 span{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .intro p{color:var(--muted);max-width:56ch}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 26px}
+  .chips button{font:700 14px Sora,sans-serif;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .chips button i{width:9px;height:9px;border-radius:50%;background:var(--c,#fff)}
+  .chips button[aria-pressed=true]{background:var(--ink);color:#0b0616;border-color:var(--ink)}
+  .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .kaart{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:16px;text-decoration:none;background:linear-gradient(160deg,#1b1032,#120a24);border:1px solid var(--line);border-radius:20px;padding:20px 20px 18px;min-height:190px;transition:border-color .25s,transform .25s}
+  .kaart::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:var(--c)}
+  .kaart:hover{border-color:var(--c);transform:translateY(-3px)}
+  .label{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+  .kaart h3{font-size:18px;line-height:1.3;font-weight:700;margin-top:10px}
+  .onder{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+  .onder .pijl{color:var(--yellow);font-size:18px;transition:transform .2s}
+  .kaart:hover .pijl{transform:translate(3px,-3px)}
+  footer{color:var(--muted);font-size:13px;margin-top:34px}
+  @media (max-width:900px){.feed{grid-template-columns:repeat(2,1fr)}header.top nav{display:none}}
+  @media (max-width:560px){.feed{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){.live i{animation:none}.kaart,.pijl{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="/" aria-label="Ritesh Tikai, naar de homepage"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f0c96a"/><stop offset="1" stop-color="#b8862f"/></linearGradient></defs><text x="19" y="36" text-anchor="middle" font-family="Cinzel" font-weight="600" font-size="17" fill="url(#gl)">R</text><text x="41" y="36" text-anchor="middle" font-family="Cinzel" font-weight="600" font-size="17" fill="url(#gl)">T</text><path d="M30 2 L31.4 28.6 L58 30 L31.4 31.4 L30 58 L28.6 31.4 L2 30 L28.6 28.6 Z" fill="none" stroke="url(#gl)" stroke-width=".7"/></svg></a>
+    <nav aria-label="Hoofdmenu"><a href="/#tiktok">TikTok</a><a href="/#instagram">Instagram</a><a href="/#contact">Contact</a><a href="/">Home</a></nav>
+  </header>
+  <div class="intro">
+    <span class="live"><i></i><span id="datum">…</span></span>
+    <h1>AI-nieuws <span>van vandaag</span></h1>
+    <p>Elke ochtend om 07:00 vers. Een mix van grappig, Nederlands en internationaal AI-nieuws, tips voor ondernemers en de nieuwste tools.</p>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Filter op onderwerp"></div>
+  <p id="status" aria-live="polite" style="position:absolute;left:-999px"></p>
+  <main class="feed" id="feed"></main>
+  <footer>Koppen en links via Google Nieuws. Klik door om het volledige artikel bij de bron te lezen.</footer>
+</div>
+<script>
+const KLEUR = { grappig: "var(--c-grappig)", nederland: "var(--c-nederland)", internationaal: "var(--c-internationaal)", ondernemers: "var(--c-ondernemers)", tools: "var(--c-tools)" };
+function geleden(iso) {
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 60) return m + " min geleden";
+  const u = Math.round(m / 60); if (u < 24) return u + " uur geleden";
+  const d = Math.round(u / 24); return d === 1 ? "gisteren" : d + " dagen geleden";
+}
+function el(tag, cls, tekst) { const e = document.createElement(tag); if (cls) e.className = cls; if (tekst != null) e.textContent = tekst; return e; }
+fetch("ai-nieuws.json", { cache: "no-store" }).then(r => r.json()).then(d => {
+  const dt = new Date(d.bijgewerkt);
+  document.getElementById("datum").textContent = "Bijgewerkt " + dt.toLocaleDateString("nl-NL", { weekday: "long", day: "numeric", month: "long" }) + ", " + dt.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" });
+  // om en om per categorie, zodat de mix in balans is
+  const alle = [], max = Math.max(...d.categorieen.map(c => c.berichten.length));
+  for (let i = 0; i < max; i++) d.categorieen.forEach(c => { if (c.berichten[i]) alle.push({ ...c.berichten[i], cat: c }); });
+  const feed = document.getElementById("feed"), chips = document.getElementById("chips");
+  function toon(f) {
+    feed.replaceChildren();
+    const lijst = alle.filter(b => f === "alles" || b.cat.id === f);
+    lijst.forEach(b => {
+      const a = el("a", "kaart"); a.href = b.link; a.target = "_blank"; a.rel = "noopener"; a.style.setProperty("--c", KLEUR[b.cat.id]);
+      const top = el("div"); top.append(el("span", "label", b.cat.kort), el("h3", null, b.titel));
+      const onder = el("div", "onder"); onder.append(el("span", null, b.bron + " · " + geleden(b.datum)), el("span", "pijl", "↗"));
+      a.append(top, onder); feed.append(a);
+    });
+    document.getElementById("status").textContent = lijst.length + " berichten getoond";
+  }
+  [{ id: "alles", kort: "Alles" }, ...d.categorieen].forEach((c, i) => {
+    const b = el("button"); b.setAttribute("aria-pressed", i === 0); if (c.id !== "alles") { b.style.setProperty("--c", KLEUR[c.id]); b.append(el("i")); }
+    b.append(document.createTextNode(c.kort));
+    b.onclick = () => { chips.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); toon(c.id); };
+    chips.append(b);
+  });
+  toon("alles");
+});
+</script>
+</body>
+</html>
