@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "2026-11-24T09:00:01.655477+00:00",
+ "bijgewerkt": "2026-11-24T09:23:43.033652+00:00",
  "categorieen": [
   {
    "id": "grappig",
@@ -31,16 +31,16 @@
      "datum": "2026-11-24T01:13:00+00:00"
     },
     {
-     "titel": "Your friend just got AI-rich. Please don’t ask for a loan",
-     "bron": "The San Francisco Standard",
-     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5PQ0xNNG5sOU83VC1yVkVtRElubm5WMGxYOWRRaU9jVjh6NnYzbGJhMGNSMG1jRGtudTFUWmRKQU9FZ1VBS1pCdzVnMkNjeElHdDBDVG83Yl9fQ0EtNHJCLWVvblFnSC01N3pPU0tGOA?oc=5",
-     "datum": "2026-11-22T14:00:00+00:00"
-    },
-    {
      "titel": "Essay: Vertrouw niet blind op de ‘grote kansen’ van AI",
      "bron": "Binnenlands Bestuur",
      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNTmZ5bXl3VUJuUEtQNFhjZTV0ZTlQZkY2MVd5Y2R6bVZVajNPYUpaVEFEME9pdE41U2RKcG13WElvN0laOU01UjVCMl9zUHltS19EaGlXazRFa0FESDE3Qkp0NDg0Q0thcGd4UG5feGhUaDVPYnhrXzBKUGswejNSWkZpcGFMdU9kUEJTV0hLQzVKZlZFdmZlZ25R?oc=5",
      "datum": "2026-11-22T09:00:00+00:00"
+    },
+    {
+     "titel": "The Brother-Sister Duo Who Want to Keep Anthropic Weird",
+     "bron": "WSJ",
+     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOZGJyNGh6cktKS0FsM3FIbF9LbjFqVThfY3MyRURJREVmd1JqVGtVX3pTV1FuQzBUUUI3VDdXVHdUYkpKTDk1Ml9vZzdoN1p5T0pVZ3g1eGpwQ1NfVFp6VlhJX1FSXzZ6ajVDYjVKazF5N2FGbXVHLUdjN05YRzVQZnRYaVZtMkE?oc=5",
+     "datum": "2026-11-21T02:00:55+00:00"
     }
    ]
   },
@@ -50,10 +50,22 @@
    "kort": "Nederland",
    "berichten": [
     {
-     "titel": "Britse financiële toezichthouder wil verwachtingen voor agentische AI vastleggen",
+     "titel": "BumaStemra dreigt met rechtszaak tegen Nederlandse aanbieder van AI-muziek",
+     "bron": "Tweakers",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcmprZ0JmRkhBaGNpaFlLbDJ0RnRTZ2kxc2Z0X1d4cTBSVVNKY2FQOFpXTVJPSFpvTm85Y1FobC1HWW9jWVczakUtZUtYN0EwanJaQ2VaMkZmYlJHOURtZjNlOG1haHV0WTJMM2lHQzhNVTRSZ2Npb3VBNkxJVmM3aG9uT1VETGFkVFlxRGdFdUI0VnpzUkJwOWlvUzU0TXZoUjF4LV9mY2VzeWd0dGZ4RlV4Nkw?oc=5",
+     "datum": "2026-11-24T09:18:34+00:00"
+    },
+    {
+     "titel": "Britse toezichthouder houdt toezicht op invoering van Meta's Muse AI",
      "bron": "MarketScreener Nederland",
-     "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQRGVlWnI0ck5GbWhBVm5Mb0RVQnNGWGFudXl2ZmtHUmJ4cjNnTFE1cjFjcUkwYW1mM2JGM2p5MWxkZGxxanlSNTVwYnM0aHVkNDdfMjNScDkxYUk2MkJ4TFFYVnVvZVJSOVR3ckh2QXpHTjFjLXVfRVNtYXdmTTRJeTdveFpCTkp5WnBVZzJNazZFc1ItOUpJWnJVTTlpQVhwRFQ1ZnVkbGw3U0xTS1JZNGpvMUlFMXpTZ09BRkV6eHdvWklJVkJQekl2VDdyazJ1bnpYU2xR?oc=5",
-     "datum": "2026-11-24T08:36:50+00:00"
+     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNcU1ZbEdnYnpRQy1FaEFoRER4emV2N2tpVkM2ekh4LWNVbHFhMHFVX2JHUFpIQ2ZKMGkxQnNRUG1IM2J5WVk3QkFEYW93SVdfYWFZdlNKQlhZRWRseUlQYXZsejd1Z3ZtZDZPaXdIWHJYWWY3M05fWGRZV1Bjd2tPb0pDNm1Ca1VnTjRkMlBFU0lXTXVadDlLeUhsXzNyOEwxcHVQTk1fNE1ySDRMR1p4Q0ZvSHNhVXdjdXpZSUY4TzUyT043ZUE?oc=5",
+     "datum": "2026-11-24T09:00:19+00:00"
+    },
+    {
+     "titel": "Audio: BumaStemra opent aanval op AI-muziekplatform",
+     "bron": "FONK magazine",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPV2d1V250NGk5R2h1Z0dfQ2c0MTVHWm85bncwVV9ZNXhPYlltNFpocDNuc2U2WWNtOXc1M0pFTkhybmxveko2MDN2cVh0RXlLNTdBeUFWdVQ4UzliRGJHM0ZYckdoTWZJa1JWalk0S3NmcC02czVYUUNhNDlnNmZETlljc3kyT21oY1hxVURMbXktZmN0ajI0QkFWVjE?oc=5",
+     "datum": "2026-11-24T08:51:53+00:00"
     },
     {
      "titel": "Europese STOXX 600 blijft gematigd na AI-gedreven rally",
@@ -72,18 +84,6 @@
      "bron": "AI Wereld",
      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNWHlaSzlkWEQ0QWVxQkhqbmdlYnlSQVZNTW51VTJ3UGdjSERoYVZrTnp1SGZfd213UzMtTzNlc0pzWURBUVFvV2gtTm5pYmpFTVlfeW9aRms4ZjVzRklpaWpoQ2hSbG9qenU3c2pOMHJqSEFYdTh5SnZGSENNelBlMUx6WkJLMlJ2cnUwS1hseDA?oc=5",
      "datum": "2026-11-24T06:00:00+00:00"
-    },
-    {
-     "titel": "ABN AMRO: AI jaagt Nederlandse TMT-sector aan",
-     "bron": "Dutch IT Leaders",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQeWFWWFBtcVRQM2tmMnFCS1BTd2Q0QTFvd1NXejM2azNXYlJGM1l1QUJNRHZTeWNFblVXTm51cHRQdTZZZDBCY0ZjaU85cU00OW1NVlpBWldzcURHS19ER3piNmhJcHBqaENpTHctQmVwVkhRY2RQSWtXbUM2d2FsejNZbTFrQkNyNUJjRFlGLTV4dTAyTFBBam5zLV9VWk1I?oc=5",
-     "datum": "2026-11-24T05:18:41+00:00"
-    },
-    {
-     "titel": "Goedemorgen AI 24 november: ChatGPT Sol en Nvidia",
-     "bron": "AI Wereld",
-     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNT1JwTXVrUjJqNzdTVGwzbUdfbGVGQUhmaGtUaVhhMmtGLWJsX0dhOWpha1hXSWRSeFBkOEJHbFZRamkzMnN3TmlzNXUtcDRNcDRmNV9fNVdGUGZZWGcweE1ZdG5qX0dVNlRuUGhpYkxKd1J3TkQzZlZZS3RjbU96ODdReXpTNUx6TXg1MkRXNERCZWc?oc=5",
-     "datum": "2026-11-24T05:00:00+00:00"
     }
    ]
   },
@@ -93,10 +93,10 @@
    "kort": "Internationaal",
    "berichten": [
     {
-     "titel": "Meta's Muse AI Agent Goes Live in UK With Argos as First Big Retail Partner",
-     "bron": "BigGo Finance",
-     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5EWFA3RDBNZ2NQNDdZNFJmVzNlZjdKVlhudExnVElhaEp0MWxZZmtrbjJIRWhJaHlXSjRlS1p4TU45aDdUWDMzckRHZGpNWG1KVXp3a0xGNmNtRFIyN1BQQURUbnpkQWlKSkhsd0lHVFI2ODhOX0E?oc=5",
-     "datum": "2026-11-24T08:42:35+00:00"
+     "titel": "ICO fires warning to Meta as Muse AI product launches in UK with Argos and Debenhams onboard",
+     "bron": "Retail Technology Innovation Hub",
+     "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPd0FSTDg3aUFfWkYxYVZzUklBaUFzX0QzTC1zRkQ2R3hrc3d1WlVuZWZnRjRaYzJWZGcwV2RGaTVZYnhHb1BqNEdFVzZyNlBaX0ZMNWNjcWJMZHJrUUg4T3h6Zk5ldVg4ekR1N1g2WlFpbzhyd0MyVVIxajVMNzcwUnZ1TU5JdUxYaElIeFd3UmxzaTVHb25NVWRNZ2hnRGlhc2F0S2c3d0dLYjJwa2hLQi1Cel82QXlQUFprMWZCWU80UTJZMGdPYTBWTl9lbWR0cmluaF94aE5PQ1Q5?oc=5",
+     "datum": "2026-11-24T08:47:28+00:00"
     },
     {
      "titel": "Former Google CEO Eric Schmidt agrees with Meta AI head Alexandr Wang’s ‘dangerous’ superintelligence war",
@@ -161,8 +161,8 @@
     },
     {
      "titel": "Launch times are down 50%, plus 7 more small business trends of 2026",
-     "bron": "Hill Country News",
-     "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORG5xQ1dWQ2M3dlZJck45enpQaVY5cHpkVXF3MF9nR0pkb1ctc0pBZVdNclRWVGlRcWw2LUhYOWl3N1A3TjY5OG5CRWpmdzA2dGtTUk9Bai0temFKOGppLTlzVHk2YVdORHVoSktlblZFTlRKTTVCdEMzTm5hejJybHYzYUoyVmpLRXlVZHFsZU9zY3VBR3NZV2pyZXNtV1czem9FUTZVUTJsWUpPMlZxb3dvQQ?oc=5",
+     "bron": "Cottage Grove Journal",
+     "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxONl94dHh5S2VqUVlwYl9kT2htWm9jMmlKXy1aMjluNzB3a1VLMG9sOWl3LXMwNWR2UzBySkswVC1SbVdUeW02ckZxNUttT2xZanltOFhpU2tSNnd3UUpsb3RscmJBMGkwMTQwYUtNcEdDTDJZVVItWkFXMF9HWmpzaWY4RTkzcG5RcGEtYnZBYURub2twQ3NGYURFaHRhVTZrdDhvZGxiVnhfUmxUa3Qwa3hBWUhzdi1qRXk4SEZYajl6QkNzY1dITEFmUmdFYWs?oc=5",
      "datum": "2026-11-23T21:55:08+00:00"
     },
     {
