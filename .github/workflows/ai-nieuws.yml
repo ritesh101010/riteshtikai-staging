@@ -1,12 +1,11 @@
 name: AI-nieuws verversen
 
-# Elke ochtend om 07:00 Nederlandse tijd.
-# GitHub rekent in UTC: 05:00 UTC = 07:00 zomertijd, 06:00 UTC = 07:00 wintertijd.
-# Beide tijden draaien; de stap "Is het 07:00 in Nederland?" laat er telkens maar een doorgaan.
+# Elke ochtend vanaf 07:00 Nederlandse tijd.
+# GitHub start geplande runs soms uren te laat of slaat er een over. Daarom draait hij elk uur
+# van 05:00 tot 14:00 UTC, en ververst hij alleen als het nieuws van vandaag er nog niet is.
 on:
   schedule:
-    - cron: "0 5 * * *"
-    - cron: "0 6 * * *"
+    - cron: "0 5-14 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -20,15 +19,15 @@ jobs:
   verversen:
     runs-on: ubuntu-latest
     steps:
-      - name: Is het 07:00 in Nederland?
+      - uses: actions/checkout@v4
+
+      - name: Is het nieuws van vandaag er al?
         id: tijd
         run: |
-          uur=$(TZ=Europe/Amsterdam date +%H)
-          echo "Nederlandse tijd: $(TZ=Europe/Amsterdam date)"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$uur" = "07" ]; then echo "door=ja" >> "$GITHUB_OUTPUT"; else echo "door=nee" >> "$GITHUB_OUTPUT"; fi
-
-      - uses: actions/checkout@v4
-        if: steps.tijd.outputs.door == 'ja'
+          uur=$(TZ=Europe/Amsterdam date +%H); vandaag=$(TZ=Europe/Amsterdam date +%Y-%m-%d)
+          laatst=$(python3 -c "import json,datetime,zoneinfo;d=json.load(open('ai-nieuws/ai-nieuws.json'));print(datetime.datetime.fromisoformat(d['bijgewerkt']).astimezone(zoneinfo.ZoneInfo('Europe/Amsterdam')).date())" 2>/dev/null || echo geen)
+          echo "Nederlandse tijd: $(TZ=Europe/Amsterdam date), laatst ververst: $laatst"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || { [ "$uur" -ge 7 ] && [ "$laatst" != "$vandaag" ]; }; then echo "door=ja" >> "$GITHUB_OUTPUT"; else echo "door=nee" >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/setup-python@v5
         if: steps.tijd.outputs.door == 'ja'
