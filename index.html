@@ -295,6 +295,28 @@
   /* grotere video in het portaal */
   .ring2{inset:2%}
   .face{inset:12%}
+  /* Hero: kaartwaaier met vastgepinde video */
+  .waaier{position:relative;height:560px;transition:transform .3s ease-out}
+  .wv{position:absolute;top:10px;left:calc(38% - 120px);width:240px;aspect-ratio:9/16;border-radius:24px;overflow:hidden;border:2px solid rgba(243,238,255,.18);box-shadow:0 20px 50px rgba(0,0,0,.55);transition:transform .9s cubic-bezier(.3,1.2,.4,1),opacity .6s,filter .6s;background:#120b20}
+  .wv img,.wv video{width:100%;height:100%;object-fit:cover;display:block}
+  .wv-bron{position:absolute;top:10px;left:10px;font-size:11px;font-weight:600;padding:4px 9px;border-radius:999px;background:rgba(11,6,22,.75);border:1px solid var(--pink);backdrop-filter:blur(6px)}
+  .wv.tt .wv-bron{border-color:var(--cyan)}
+  .wv.vast{border-color:rgba(255,211,110,.7)}.wv.vast .wv-bron{border-color:var(--yellow);color:var(--yellow)}
+  .wv-onder{position:absolute;inset:auto 0 0;padding:40px 14px 14px;background:linear-gradient(transparent,rgba(11,6,22,.92));font-weight:600;font-size:14px;color:var(--ink)}
+  .wv-balk{position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--yellow));transform-origin:0 50%;transform:scaleX(0)}
+  .wv[data-p="0"]{transform:none;z-index:5}
+  .wv[data-p="1"]{transform:translateX(120px) rotate(7deg) scale(.88);z-index:4;filter:brightness(.6)}
+  .wv[data-p="2"]{transform:translateX(220px) rotate(13deg) scale(.76);z-index:3;filter:brightness(.4)}
+  .wv[data-p="-1"]{transform:translateX(-60px) rotate(-6deg) scale(.9);z-index:4;filter:brightness(.5)}
+  .wv[data-p="-2"]{transform:translateX(-60px) rotate(-6deg) scale(.8);opacity:0;z-index:2}
+  .wv[data-p="x"]{transform:scale(.6);opacity:0;z-index:1}
+  @media (max-width:820px){
+    .waaier{height:420px}.wv{width:210px;left:calc(50% - 105px)}
+    .wv[data-p="1"]{transform:translateX(90px) rotate(8deg) scale(.84)}
+    .wv[data-p="-1"]{transform:translateX(-90px) rotate(-8deg) scale(.84)}
+    .wv[data-p="2"],.wv[data-p="-2"]{opacity:0}
+  }
+  @media (prefers-reduced-motion:reduce){.wv{transition:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "name": "Ritesh Tikai", "url": "https://riteshtikai.com/", "sameAs": ["https://www.instagram.com/riteshtikai/", "https://www.linkedin.com/in/ritesh-tikai-97643459/", "https://www.tiktok.com/@tiktoktikai", "https://www.tiktok.com/@tiktoktikai1"], "givenName": "Ritesh", "familyName": "Tikai", "image": "https://riteshtikai.com/media/og.jpg", "description": "Ritesh Tikai maakt video's over AI, goed eten, reizen en het leven, op TikTok (@tiktoktikai en @tiktoktikai1) en Instagram (@riteshtikai).", "knowsAbout": ["Kunstmatige intelligentie", "AI", "Video", "Reizen"], "@id": "https://riteshtikai.com/#persoon", "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": "Claude Academy: Teaching AI Fluency", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-11"}, {"@type": "EducationalOccupationalCredential", "name": "Introduction to Claude Cowork", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency for Small Businesses", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: AI Capabilities & Limitations", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: Framework & Foundation", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "Claude 101", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026"}]}, {"@type": "WebSite", "@id": "https://riteshtikai.com/#website", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "inLanguage": "nl", "publisher": {"@id": "https://riteshtikai.com/#persoon"}}, {"@type": "ProfilePage", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "mainEntity": {"@id": "https://riteshtikai.com/#persoon"}}]}</script>
 </head>
@@ -316,11 +338,7 @@
         <p class="lead fade" style="--d:.9s">Over AI, reizen, goed eten en alles wat ik onderweg tegenkom.</p>
       </div>
       <div class="scene fade" style="--d:.3s">
-        <div class="portal" id="portal">
-          <div class="glow" aria-hidden="true"></div><div class="ring1" aria-hidden="true"></div>
-          <div class="ring2" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="pc" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text fill="#ffd36e" font-family="Cinzel" font-size="8.5" letter-spacing="3.4"><textPath href="#pc">✦ AI ✦ TRAVEL ✦ FOODIE ✦ VERHALEN ✦ VIDEO'S ✦ HET LEVEN ✦ RITESH ✦ </textPath></text></svg></div>
-          <div class="face"><video id="facevid" src="media/hero-creeer.mp4" poster="media/hero-creeer-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Video van Ritesh Tikai: AI geeft je de kans om te creëren"></video></div>
-        </div>
+        <div class="waaier" id="portal"><div class="wv tt vast"><video id="facevid" src="media/hero-creeer.mp4" poster="media/hero-creeer-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Video van Ritesh Tikai: AI geeft je de kans om te creëren"></video><span class="wv-bron">✦ TikTok</span><span class="wv-balk" aria-hidden="true"></span></div><div class="wv ig" aria-hidden="true"><img src="media/ig/north-sea-jazz.jpg" alt="" loading="lazy"><span class="wv-bron">Instagram</span><div class="wv-onder">North Sea Jazz Solo Tour</div></div><div class="wv tt" aria-hidden="true"><img src="media/tt/jamu.jpg" alt="" loading="lazy"><span class="wv-bron">TikTok</span><div class="wv-onder">Wat is jamu?</div></div><div class="wv ig" aria-hidden="true"><img src="media/ig/canggu.jpg" alt="" loading="lazy"><span class="wv-bron">Instagram</span><div class="wv-onder">Mornings in Canggu</div></div><div class="wv tt" aria-hidden="true"><img src="media/tt/kidnap-ai-expert.jpg" alt="" loading="lazy"><span class="wv-bron">TikTok</span><div class="wv-onder">POV: je kidnapt een AI-expert</div></div><div class="wv ig" aria-hidden="true"><img src="media/ig/do-what-you-want.jpg" alt="" loading="lazy"><span class="wv-bron">Instagram</span><div class="wv-onder">Do what you really want to do!</div></div><div class="wv tt" aria-hidden="true"><img src="media/tt/roadtrip.jpg" alt="" loading="lazy"><span class="wv-bron">TikTok</span><div class="wv-onder">Reshape your life: roadtrip</div></div><div class="wv ig" aria-hidden="true"><img src="media/ig/espresso-martini.jpg" alt="" loading="lazy"><span class="wv-bron">Instagram</span><div class="wv-onder">One Espresso Martini at a time</div></div><div class="wv tt" aria-hidden="true"><img src="media/tt/faculty-of-impact.jpg" alt="" loading="lazy"><span class="wv-bron">TikTok</span><div class="wv-onder">AI-workshop bij de Faculty of Impact</div></div><div class="wv ig" aria-hidden="true"><img src="media/ig/manzanillo.jpg" alt="" loading="lazy"><span class="wv-bron">Instagram</span><div class="wv-onder">Hiking in Manzanillo</div></div><div class="wv tt" aria-hidden="true"><img src="media/tt/elke-keuze.jpg" alt="" loading="lazy"><span class="wv-bron">TikTok</span><div class="wv-onder">Elke keuze bepaalt wie jij wordt</div></div><div class="wv ig" aria-hidden="true"><img src="media/ig/wintersun.jpg" alt="" loading="lazy"><span class="wv-bron">Instagram</span><div class="wv-onder">Wintersun</div></div></div>
         <div class="hero-knoppen"><button class="geluid" id="geluid" type="button" aria-pressed="false"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 16 H14 L22 9 V31 L14 24 H8 Z" fill="none" stroke="url(#goudIco)" stroke-width="2" stroke-linejoin="round"/><g class="aan"><path d="M27 15 a7 7 0 0 1 0 10 M30.5 11.5 a12 12 0 0 1 0 17" fill="none" stroke="url(#goudIco)" stroke-width="2" stroke-linecap="round"/></g><g class="uit"><path d="M27 16 L35 24 M35 16 L27 24" stroke="url(#goudIco)" stroke-width="2" stroke-linecap="round"/></g></svg><span>Geluid aan</span></button><button class="pause" id="pause" aria-pressed="false">❚❚ Pauzeer animatie</button></div>
       </div>
     </div>
@@ -560,12 +578,16 @@ function teken(t) {
 maat();
 requestAnimationFrame(lus);
 })();
-/* Hero-video: volgt de pauzeknop en "minder beweging" */
+/* Hero-waaier: de video staat vast vooraan, de beelden erachter staan stil */
 (() => {
-  const v = document.getElementById("facevid"), knop = document.getElementById("pause");
-  if (!v) return;
+  const w = document.getElementById("portal"), v = document.getElementById("facevid"), knop = document.getElementById("pause"), balk = w && w.querySelector(".wv-balk");
+  if (!w || !v) return;
+  const kaarten = [...w.querySelectorAll(".wv")], n = kaarten.length;
+  kaarten.forEach((k, i) => { let d = i; if (d > n / 2) d -= n; k.dataset.p = Math.abs(d) <= 2 ? d : "x"; });
+  v.addEventListener("timeupdate", () => { if (v.duration) balk.style.transform = `scaleX(${v.currentTime / v.duration})`; });
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); }
   knop.addEventListener("click", () => knop.getAttribute("aria-pressed") === "true" ? v.pause() : v.play());
+  document.getElementById("geluid").addEventListener("click", () => { if (v.paused) v.play(); });
 })();
 /* Instagram-slider */
 (() => {
@@ -579,7 +601,6 @@ requestAnimationFrame(lus);
   b.onclick = () => {
     const aan = v.muted;
     v.muted = !aan;
-    if (aan && v.paused) v.play();
     b.setAttribute("aria-pressed", aan);
     b.querySelector("span").textContent = aan ? "Geluid uit" : "Geluid aan";
   };
