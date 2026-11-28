@@ -348,6 +348,29 @@
   .sterren circle.aan{fill:var(--yellow);r:5;filter:drop-shadow(0 0 6px rgba(255,211,110,.9))}
 }
 </style>
+<style>
+/* Filterbalk op mobiel: sterrenbeeld-pijl die zichzelf tekent */
+@media (max-width:820px){
+  .segw{position:relative;display:block;max-width:100%}
+  .segw .seg{display:flex;max-width:100%;scroll-behavior:smooth}
+  .segw .hint{position:absolute;top:2px;bottom:2px;width:64px;display:flex;align-items:center;border:0;padding:0;cursor:pointer;z-index:2;transition:opacity .35s;background:none}
+  .segw .hint.r{right:2px;justify-content:flex-end;padding-right:12px;border-radius:0 999px 999px 0;background:linear-gradient(90deg,rgba(22,13,42,0),#160d2a 60%)}
+  .segw .hint.l{left:2px;justify-content:flex-start;padding-left:12px;border-radius:999px 0 0 999px;background:linear-gradient(270deg,rgba(22,13,42,0),#160d2a 60%)}
+  .segw .hint.l svg{transform:scaleX(-1)}
+  .segw .hint[hidden]{display:flex;opacity:0;pointer-events:none}
+  .segw .hint svg{overflow:visible}
+  .segw .hint:focus-visible{outline:2px solid var(--yellow);outline-offset:-4px}
+}
+.segw .hint{display:none}
+@media (max-width:820px){.segw .hint{display:flex}}
+@media (max-width:820px){
+  .segw .hint svg{width:22px;height:28px}
+  .segw .hint polyline{fill:none;stroke:var(--yellow);stroke-width:1.1;stroke-linecap:round;stroke-dasharray:40;stroke-dashoffset:40;animation:teken 3.2s ease-in-out infinite;filter:drop-shadow(0 0 3px rgba(255,211,110,.8))}
+  .segw .hint path{fill:var(--yellow);opacity:0;transform-box:fill-box;transform-origin:center;animation:licht 3.2s ease-in-out infinite;filter:drop-shadow(0 0 4px rgba(255,211,110,.9))}
+  .segw .hint path:nth-of-type(2){animation-delay:.35s}.segw .hint path:nth-of-type(3){animation-delay:.7s}
+  @keyframes teken{0%{stroke-dashoffset:40}45%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+  @keyframes licht{0%{opacity:0;transform:scale(.3)}20%,80%{opacity:1;transform:none}100%{opacity:0}}
+}@media (prefers-reduced-motion:reduce){.segw .hint *,.segw .hint svg{animation:none!important;opacity:1!important;stroke-dashoffset:0!important}}</style>
 </head>
 <body>
 <a class="skip" href="#main">Naar inhoud</a>
@@ -669,6 +692,17 @@ requestAnimationFrame(lus);
     document.querySelectorAll("#vrienden .seg button").forEach(b => b.addEventListener("click", () => setTimeout(teken, 50)));
     teken();
   });
+})();
+</script>
+<script>
+(() => {
+  const seg = document.querySelector("#vrienden .seg"); if (!seg) return;
+  const w = document.createElement("div"); w.className = "segw"; seg.before(w); w.appendChild(seg);
+  const mk = (k, label) => { const b = document.createElement("button"); b.type = "button"; b.className = "hint " + k; b.setAttribute("aria-label", label); b.innerHTML = `<svg viewBox="0 0 22 28" aria-hidden="true"><polyline points="3,3 18,14 3,25"/><path d="M3 0 Q3 3 6 3 Q3 3 3 6 Q3 3 0 3 Q3 3 3 0Z"/><path d="M18 9.5 Q18 14 22.5 14 Q18 14 18 18.5 Q18 14 13.5 14 Q18 14 18 9.5Z"/><path d="M3 22 Q3 25 6 25 Q3 25 3 28 Q3 25 0 25 Q3 25 3 22Z"/></svg>`; w.appendChild(b); return b; };
+  const r = mk("r", "Meer categorieën"), l = mk("l", "Vorige categorieën");
+  r.onclick = () => seg.scrollBy({ left: 140 }); l.onclick = () => seg.scrollBy({ left: -140 });
+  const zet = () => { const max = seg.scrollWidth - seg.clientWidth; r.hidden = seg.scrollLeft >= max - 4; l.hidden = seg.scrollLeft <= 4; };
+  seg.addEventListener("scroll", zet, { passive: true }); addEventListener("resize", zet); zet();
 })();
 </script>
 </body>
