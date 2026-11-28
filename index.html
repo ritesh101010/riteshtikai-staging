@@ -324,6 +324,19 @@
   @media (prefers-reduced-motion:reduce){.wv{transition:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "name": "Ritesh Tikai", "url": "https://riteshtikai.com/", "sameAs": ["https://www.instagram.com/riteshtikai/", "https://www.linkedin.com/in/ritesh-tikai-97643459/", "https://www.tiktok.com/@tiktoktikai", "https://www.tiktok.com/@tiktoktikai1"], "givenName": "Ritesh", "familyName": "Tikai", "image": "https://riteshtikai.com/media/og.jpg", "description": "Ritesh Tikai maakt video's over AI, goed eten, reizen en het leven, op TikTok (@tiktoktikai en @tiktoktikai1) en Instagram (@riteshtikai).", "knowsAbout": ["Kunstmatige intelligentie", "AI", "Video", "Reizen"], "@id": "https://riteshtikai.com/#persoon", "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": "Claude Academy: Teaching AI Fluency", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-11"}, {"@type": "EducationalOccupationalCredential", "name": "Introduction to Claude Cowork", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency for Small Businesses", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: AI Capabilities & Limitations", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: Framework & Foundation", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "Claude 101", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026"}]}, {"@type": "WebSite", "@id": "https://riteshtikai.com/#website", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "inLanguage": "nl", "publisher": {"@id": "https://riteshtikai.com/#persoon"}}, {"@type": "ProfilePage", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "mainEntity": {"@id": "https://riteshtikai.com/#persoon"}}]}</script>
+<style>
+/* Sterrenbeeld onder de schuivers op mobiel: laat zien dat je kunt vegen en waar je bent */
+.sterren{display:none}
+@media (max-width:820px){
+  .sterren{display:block;margin:16px auto 0;height:34px;width:min(100%,260px)}
+  .sterren svg{width:100%;height:100%;overflow:visible}
+  .sterren line{stroke:rgba(196,155,255,.25);stroke-width:1}
+  .sterren line.aan{stroke:var(--yellow);stroke-opacity:.8}
+  .sterren circle{fill:#5a4a80;transition:r .3s,fill .3s}
+  .sterren circle.gezien{fill:rgba(255,211,110,.6)}
+  .sterren circle.aan{fill:var(--yellow);r:5;filter:drop-shadow(0 0 6px rgba(255,211,110,.9))}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Naar inhoud</a>
@@ -619,6 +632,32 @@ requestAnimationFrame(lus);
   menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => zet(false)));
   document.addEventListener("keydown", e => { if (e.key === "Escape" && menu.classList.contains("open")) { zet(false); knop.focus(); } });
   matchMedia("(min-width: 821px)").addEventListener("change", e => { if (e.matches) zet(false); });
+})();
+</script>
+<script>
+(() => {
+  if (!matchMedia("(max-width:820px)").matches) return;
+  document.querySelectorAll(".track, .ig-track").forEach(t => {
+    const stage = t.closest(".stage"); if (!stage) return;
+    const box = document.createElement("div"); box.className = "sterren"; box.setAttribute("aria-hidden", "true"); stage.after(box);
+    let n = -1;
+    const bouw = k => {
+      n = k; const Y = [17, 8, 24, 12, 27, 6, 20, 14, 26, 10];
+      const pts = Array.from({ length: n }, (_, i) => [n === 1 ? 130 : 10 + i * 240 / (n - 1), Y[i % Y.length]]);
+      box.innerHTML = `<svg viewBox="0 0 260 34">${pts.slice(1).map((p, i) => `<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${p[0]}" y2="${p[1]}"/>`).join("")}${pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="2.6"/>`).join("")}</svg>`;
+    };
+    const teken = () => {
+      const k = [...t.children].filter(x => !x.hidden && x.offsetParent), max = t.scrollWidth - t.clientWidth;
+      if (k.length !== n) bouw(k.length);
+      const w = k[1] ? k[1].offsetLeft - k[0].offsetLeft : 1;
+      const i = max <= 2 || t.scrollLeft >= max - 4 ? n - 1 : Math.round(t.scrollLeft / w);
+      box.querySelectorAll("circle").forEach((c, j) => { c.classList.toggle("aan", j === i); c.classList.toggle("gezien", j < i); });
+      box.querySelectorAll("line").forEach((l, j) => l.classList.toggle("aan", j < i));
+    };
+    t.addEventListener("scroll", teken, { passive: true });
+    document.querySelectorAll("#vrienden .seg button").forEach(b => b.addEventListener("click", () => setTimeout(teken, 50)));
+    teken();
+  });
 })();
 </script>
 </body>
