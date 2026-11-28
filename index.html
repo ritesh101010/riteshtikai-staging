@@ -342,6 +342,24 @@
   @keyframes spTeken{0%{stroke-dashoffset:50;opacity:.5}45%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.5}}
   @keyframes spLicht{0%,100%{opacity:.45;transform:scale(.75)}20%,80%{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.sterpijl polyline,.sterpijl path{animation:none;opacity:1;stroke-dashoffset:0}}
+  /* TikTok-keuzevenster: persoonlijk of werk */
+  .dm-btn.tt{border:0;cursor:pointer;font-family:inherit}
+  .ttkeuze{margin:auto;position:fixed;inset:0;height:fit-content;width:min(440px,calc(100vw - 32px));padding:30px 26px 24px;border:1px solid rgba(255,211,110,.35);border-radius:24px;background:radial-gradient(circle at 80% 0%,rgba(155,92,255,.3),transparent 55%),#120a24;color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(155,92,255,.25)}
+  .ttkeuze::backdrop{background:rgba(11,6,22,.7);backdrop-filter:blur(6px)}
+  .ttkeuze[open]{animation:ttkIn .35s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes ttkIn{from{opacity:0;transform:translateY(16px) scale(.97)}}
+  .ttk-kick{margin:0 0 6px;font-family:Cinzel,serif;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);font-size:13px}
+  .ttkeuze h3{margin:0 0 18px;padding-right:44px;font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .ttk-opties{display:grid;gap:12px}
+  .ttk-optie{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,#1b1032,#120a24);color:var(--ink);text-decoration:none;transition:border-color .25s,transform .25s,box-shadow .25s}
+  .ttk-optie svg{width:44px;height:44px;flex:none}
+  .ttk-optie b{display:block;font-size:19px}
+  .ttk-optie span span{font-size:14px;color:var(--muted)}
+  .ttk-optie:hover,.ttk-optie:focus-visible{border-color:var(--yellow);transform:translateY(-2px);box-shadow:0 0 24px rgba(255,211,110,.18)}
+  .ttk-optie:focus-visible,.ttk-sluit:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+  .ttk-tip{margin:16px 0 0;font-size:13px;color:var(--muted)}
+  .ttk-sluit{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:1px solid #3a2c5e;background:rgba(22,13,42,.9);color:var(--ink);font-size:16px;cursor:pointer}
+  @media (prefers-reduced-motion:reduce){.ttkeuze[open]{animation:none}.ttk-optie{transition:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "name": "Ritesh Tikai", "url": "https://riteshtikai.com/", "sameAs": ["https://www.instagram.com/riteshtikai/", "https://www.linkedin.com/in/ritesh-tikai-97643459/", "https://www.tiktok.com/@tiktoktikai", "https://www.tiktok.com/@tiktoktikai1"], "givenName": "Ritesh", "familyName": "Tikai", "image": "https://riteshtikai.com/media/og.jpg", "description": "Ritesh Tikai maakt video's over AI, goed eten, reizen en het leven, op TikTok (@tiktoktikai en @tiktoktikai1) en Instagram (@riteshtikai).", "knowsAbout": ["Kunstmatige intelligentie", "AI", "Video", "Reizen"], "@id": "https://riteshtikai.com/#persoon", "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": "Claude Academy: Teaching AI Fluency", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-11"}, {"@type": "EducationalOccupationalCredential", "name": "Introduction to Claude Cowork", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency for Small Businesses", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-07"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: AI Capabilities & Limitations", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "AI Fluency: Framework & Foundation", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026-06"}, {"@type": "EducationalOccupationalCredential", "name": "Claude 101", "credentialCategory": "certificate", "recognizedBy": {"@type": "Organization", "name": "Anthropic"}, "dateCreated": "2026"}]}, {"@type": "WebSite", "@id": "https://riteshtikai.com/#website", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "inLanguage": "nl", "publisher": {"@id": "https://riteshtikai.com/#persoon"}}, {"@type": "ProfilePage", "url": "https://riteshtikai.com/", "name": "Ritesh Tikai", "mainEntity": {"@id": "https://riteshtikai.com/#persoon"}}]}</script>
 <style>
@@ -503,11 +521,22 @@
       <p id="vstatus" aria-live="polite" style="position:absolute;left:-999px"></p>
     </section>
 
+
+    <dialog class="ttkeuze" id="ttkeuze" aria-labelledby="ttk-h">
+      <p class="ttk-kick">✦ TikTok</p>
+      <h3 id="ttk-h">Naar welk account?</h3>
+      <div class="ttk-opties">
+        <a class="ttk-optie" href="https://www.tiktok.com/@tiktoktikai"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15" fill="none" stroke="url(#goudIco)" stroke-width="1.2"/><circle cx="15" cy="17" r="1.4" fill="url(#goudIco)"/><circle cx="25" cy="17" r="1.4" fill="url(#goudIco)"/><path d="M13.5 23 Q20 29 26.5 23" fill="none" stroke="url(#goudIco)" stroke-width="1.2" stroke-linecap="round"/></svg><span><b>Persoonlijk</b><span>Ritesh Tikai · @tiktoktikai</span></span></a>
+        <a class="ttk-optie" href="https://www.tiktok.com/@tiktoktikai1"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5.5 V10" stroke="url(#goudIco)" stroke-width="1.2"/><circle cx="20" cy="4.5" r="1.5" fill="url(#goudIco)"/><rect x="8.5" y="10.5" width="23" height="20" rx="6" fill="none" stroke="url(#goudIco)" stroke-width="1.2"/><circle cx="15" cy="19" r="2.2" fill="none" stroke="url(#goudIco)" stroke-width="1.1"/><circle cx="25" cy="19" r="2.2" fill="none" stroke="url(#goudIco)" stroke-width="1.1"/><path d="M16 25.5 H24" stroke="url(#goudIco)" stroke-width="1.1" stroke-linecap="round"/><path d="M6 18 V23 M34 18 V23" stroke="url(#goudIco)" stroke-width="1.1" stroke-linecap="round"/></svg><span><b>Werk</b><span>Tik-AI · @tiktoktikai1</span></span></a>
+      </div>
+      <p class="ttk-tip">Stuur me daar een bericht via de knop Bericht op mijn profiel.</p>
+      <button class="ttk-sluit" type="button" aria-label="Sluiten">✕</button>
+    </dialog>
     <section id="contact" class="contact dm" aria-labelledby="c-h">
       <div class="dm-tekst">
         <h2 id="c-h">Zeg gerust hoi!</h2>
-        <p>Twee kanten op. Kies wat bij je past, ik reageer meestal binnen een dag.</p>
-        <div class="dm-keuzes"><div class="keuze"><a class="btn dm-btn" href="https://www.instagram.com/riteshtikai/"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Stuur me een DM</span></a><small>om gezellig te kletsen</small></div><div class="keuze"><a class="btn dm-btn li" href="https://www.linkedin.com/in/ritesh-tikai-97643459/"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.7 2.5 4.7 5.8V21h-4v-5.2c0-1.2 0-2.8-1.8-2.8s-2 1.3-2 2.7V21h-4z"/></svg><span>Bericht op LinkedIn</span></a><small>om te dromen over ondernemen</small></div></div>
+        <p>Drie kanten op. Kies wat bij je past, ik reageer meestal binnen een dag.</p>
+        <div class="dm-keuzes"><div class="keuze"><a class="btn dm-btn" href="https://www.instagram.com/riteshtikai/"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Stuur me een DM</span></a><small>om gezellig te kletsen</small></div><div class="keuze"><a class="btn dm-btn li" href="https://www.linkedin.com/in/ritesh-tikai-97643459/"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.7 2.5 4.7 5.8V21h-4v-5.2c0-1.2 0-2.8-1.8-2.8s-2 1.3-2 2.7V21h-4z"/></svg><span>Bericht op LinkedIn</span></a><small>om te dromen over ondernemen</small></div><div class="keuze"><button class="btn dm-btn tt" type="button" aria-haspopup="dialog" aria-controls="ttkeuze"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg><span>Bericht op TikTok</span></button><small>persoonlijk of werk</small></div></div>
         <div class="socials" aria-label="Volg mij"><a href="https://www.tiktok.com/@tiktoktikai" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg>@tiktoktikai</a><a href="https://www.tiktok.com/@tiktoktikai1" rel="me"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3.3c-1.5 0-2.9-.4-4.1-1.2v6.1A6.2 6.2 0 1 1 10.4 9v3.4a2.9 2.9 0 1 0 2.9 2.9V3z"/></svg>@tiktoktikai1</a></div>
       </div>
       <a class="chat" href="https://www.instagram.com/riteshtikai/" aria-label="Open het Instagram-profiel van @riteshtikai">
@@ -711,6 +740,17 @@ requestAnimationFrame(lus);
   r.onclick = () => seg.scrollBy({ left: 140 }); l.onclick = () => seg.scrollBy({ left: -140 });
   const zet = () => { const max = seg.scrollWidth - seg.clientWidth; r.hidden = seg.scrollLeft >= max - 4; l.hidden = seg.scrollLeft <= 4; };
   seg.addEventListener("scroll", zet, { passive: true }); addEventListener("resize", zet); zet();
+})();
+</script>
+<script>
+/* TikTok-keuzevenster */
+(() => {
+  const d = document.getElementById("ttkeuze"), knop = document.querySelector(".dm-btn.tt");
+  if (!d || !knop) return;
+  knop.onclick = () => d.showModal();
+  d.querySelector(".ttk-sluit").onclick = () => d.close();
+  d.addEventListener("click", e => { const r = d.getBoundingClientRect(); if (e.target === d && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) d.close(); });
+  d.addEventListener("close", () => knop.focus());
 })();
 </script>
 </body>
